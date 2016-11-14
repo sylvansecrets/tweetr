@@ -21,8 +21,11 @@ body {
   font-family: 'Roboto Condensed', sans-serif;;
 }
 
-.container {
-  float: left;
+main {
+  background-color: hsla(0,100%, 100%, 1);
+  margin: auto;
+  padding-top: 140px;
+  width: 450px;
 }
 /*
  * Additional CSS can be defined below or in other CSS files, as per instructions
