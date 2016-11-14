@@ -21,6 +21,18 @@ body {
   font-family: 'Roboto Condensed', sans-serif;;
 }
 
+nav {
+  height: 80px;
+  left: 0;
+  position: fixed;
+  padding-left: 10px;
+  right : 0;
+}
+
+.logo {
+  height: 80px;
+  width: 80px;
+}
 /*
  * Additional CSS can be defined below or in other CSS files, as per instructions
  */
