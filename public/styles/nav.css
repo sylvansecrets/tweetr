@@ -1,0 +1,23 @@
+nav {
+  background-color: hsla(171, 100%, 31%, 1);
+  color: hsla(185, 100%, 95%, 1);
+  height: 80px;
+  left: 0;
+  position: fixed;
+  padding-left: 2em;
+  padding-right: 2em;
+  right : 0;
+}
+
+#nav-bar .logo {
+  float: left;
+  height: 80px;
+  width: 80px;
+}
+
+#nav-bar .header {
+  float: left;
+  font-size: 2em;
+  line-height: 80px;
+  padding-left: 10px;
+}
