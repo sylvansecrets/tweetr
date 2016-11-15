@@ -24,3 +24,7 @@ section.new-tweet h2{
   padding-top: 0.5em;
   border-bottom: 1px solid ;
 }
+
+section.new-tweet .invalid{
+  color: hsla(0, 100%, 50%, 1);
+}
