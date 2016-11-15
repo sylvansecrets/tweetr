@@ -12,7 +12,6 @@ function loadTweets(){
     success: function(tweets){
       renderTweets(tweets)}
   })
-
 }
 
 function renderTweets(tweets){
@@ -80,4 +79,24 @@ function escape(str) {
 
 $(document).ready(function(){
   loadTweets();
+  $('form').on('submit', function (event){
+    event.preventDefault();
+    $(this).children('.invalid').remove();
+    var $text = $(this).children('textarea')[0];
+    var flashWarning;
+    if ($text.value === "" || $text.value === null){
+      flashWarning = "Please enter a tweet"
+    } else {
+      if ($text.length > 140){
+        flashWarning = "Tweets are limited to a length of 140 characters"
+      }
+    }
+    if (flashWarning){
+      $(this).append(`<p class="invalid"> ${flashWarning} </p>`);
+    } else {
+      // Enter tweet adding logic here
+      $text.value = "";
+
+    }
+  })
 })
