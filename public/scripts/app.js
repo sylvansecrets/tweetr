@@ -52,3 +52,81 @@ var data = [
   }
 ];
 
+function renderTweets(tweets){
+  for (let user in tweets){
+    tweetDOM = createTweetElement(tweets[user]);
+    $('.tweet-contents').append(tweetDOM);
+  }
+}
+
+// function createTweetElement(tweet){
+//   let $tweet = $('<article>').addClass('tweet');
+//   $('article', $tweet).append('<header></header>');
+//   let image = `<img class='avatar' src=${tweet['user']['avatars']['regular']}>`;
+//   let userName = `<h2>${tweet['name']}</h2>`;
+//   let userAvatar = `<h4>${tweet['user']['avatars']['regular']}</h4>`
+//   $('header', tweet).append(image, userName, userAvatar);
+//   $('article', tweet).append('<p class="tweet-text"></p>');
+//   $('.tweet-text').append(tweet['content']['text']);
+//   $('article', tweet).append('<footer>');
+//   $('footer', tweet).append(tweet['created_at']);
+
+//   // console.log($(tweet,'article').html())
+
+//   return $(tweet,'article').html();
+// }
+
+function createTweetElement(tweet){
+  let $tweet = $('<article>').addClass('tweet');
+  let image = `<img class='avatar' src=${tweet['user']['avatars']['regular']}>`;
+  let userName = `<h2>${tweet['user']['name']}</h2>`;
+  let userAvatar = `<h4>${tweet['user']['handle']}</h4>`
+  let tweetText = tweet['content']['text'];
+  let para = `<p class="tweet-text">${tweetText}</p>`
+  let timeStamp = printTime(tweet['created_at']);
+  let foot = `<footer><p class='tweet-time'>${timeStamp}</p></footer>`
+  $($tweet).append(`<header>${image+userName+userAvatar}</header>`)
+  $($tweet).append(para);
+  $($tweet).append(foot);
+  return $tweet[0].outerHTML;
+}
+
+function printTime(timeStamp){
+  let current = Date.now();
+  let diff = timeStamp - current;
+  return roundTime(-1 * diff);
+}
+
+function roundTime(time){
+  let year = time/(365*30*24*60*60)
+  if(year > 1){
+    return `${Math.floor(year)} years ago`;
+  }
+  let month = time/(30*24*60*60);
+  console.log(month)
+  if(month > 1){
+    return `${Math.floor(month)} months ago`;
+  }
+  let day = time/(24*60*60);
+  if(day > 1){
+    return `${Math.floor(day)} days ago`;
+  }
+  let hour = time/(60*60);
+  console.log("hour",hour)
+  if(hour > 1){
+    return `${Math.floor(hour)} hours ago`;
+  }
+  let minute = time/(60*60);
+  if(minute > 1){
+    return `${Math.floor(minute)} minutes ago`;
+  }
+  let second = time/(60*60);
+  return `${Math.floor(second)} seconds ago`;
+}
+
+
+
+
+$(document).ready(function(){
+  renderTweets(data);
+})
