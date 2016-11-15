@@ -9,6 +9,7 @@ function loadTweets(){
     url: "/tweets",
     method: 'GET',
     success: function(tweets){
+      $('.tweet-contents').empty();
       renderTweets(tweets)}
   })
 }
@@ -62,11 +63,11 @@ function roundTime(time){
   if(hour > 1){
     return `${Math.floor(hour)} hours ago`;
   }
-  var minute = time/(60*60);
+  var minute = time/(60);
   if(minute > 1){
     return `${Math.floor(minute)} minutes ago`;
   }
-  var second = time/(60*60);
+  var second = time;
   return `${Math.floor(second)} seconds ago`;
 }
 
@@ -102,10 +103,6 @@ $(document).ready(function(){
           $text.value = "";
         }
       })
-
-      // Enter tweet adding logic here
-
-
     }
   })
 })
