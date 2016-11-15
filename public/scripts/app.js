@@ -59,22 +59,6 @@ function renderTweets(tweets){
   }
 }
 
-// function createTweetElement(tweet){
-//   let $tweet = $('<article>').addClass('tweet');
-//   $('article', $tweet).append('<header></header>');
-//   let image = `<img class='avatar' src=${tweet['user']['avatars']['regular']}>`;
-//   let userName = `<h2>${tweet['name']}</h2>`;
-//   let userAvatar = `<h4>${tweet['user']['avatars']['regular']}</h4>`
-//   $('header', tweet).append(image, userName, userAvatar);
-//   $('article', tweet).append('<p class="tweet-text"></p>');
-//   $('.tweet-text').append(tweet['content']['text']);
-//   $('article', tweet).append('<footer>');
-//   $('footer', tweet).append(tweet['created_at']);
-
-//   // console.log($(tweet,'article').html())
-
-//   return $(tweet,'article').html();
-// }
 
 function createTweetElement(tweet){
   let $tweet = $('<article>').addClass('tweet');
@@ -93,12 +77,12 @@ function createTweetElement(tweet){
 
 function printTime(timeStamp){
   let current = Date.now();
-  let diff = timeStamp - current;
+  let diff = (timeStamp - current)/1000;
   return roundTime(-1 * diff);
 }
 
 function roundTime(time){
-  let year = time/(365*30*24*60*60)
+  let year = time/(365*24*60*60)
   if(year > 1){
     return `${Math.floor(year)} years ago`;
   }
