@@ -1,0 +1,48 @@
+article.tweet {
+  border: 1px solid hsla(0, 0%, 87%, 1);
+  border-radius: 5px;
+  margin: 1em;
+}
+
+article.tweet.hover {
+  border: 1px solid hsla(0, 0%, 50%, 1);
+}
+
+article.tweet header {
+  background-color: hsla(0, 0%, 93%, 1);
+  display: inline-block;
+  width: 100%;
+}
+
+article img.avatar {
+  float: left;
+  height: 80px;
+  margin: 1em;
+  mix-blend-mode: multiply;
+  width: 80px;
+}
+
+article.tweet header h2{
+  float: left;
+  line-height: 80px;
+  margin: auto;
+}
+
+article.tweet header h4{
+  float: right;
+  line-height: 80px;
+  margin: 0;
+  padding: 0 5px;
+}
+
+article.tweet p.tweet-text{
+  border-bottom: 1px solid hsla(0, 0%, 95%, 1);
+  margin: 0;
+  padding: 1em;
+}
+
+article.tweet p.tweet-time{
+  margin: 0;
+  padding: 0.5em 1em;
+}
+
