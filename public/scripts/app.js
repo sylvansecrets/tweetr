@@ -4,7 +4,6 @@
  * Reminder: Use (and do all your DOM work in) jQuery's document ready function
  */
 
-
 function loadTweets(){
   $.ajax({
     url: "/tweets",
@@ -94,8 +93,18 @@ $(document).ready(function(){
     if (flashWarning){
       $(this).append(`<p class="invalid"> ${flashWarning} </p>`);
     } else {
+      $.ajax({
+        url: "/tweets",
+        method: 'POST',
+        data: {text:$text.value},
+        success: function(){
+          loadTweets();
+          $text.value = "";
+        }
+      })
+
       // Enter tweet adding logic here
-      $text.value = "";
+
 
     }
   })
