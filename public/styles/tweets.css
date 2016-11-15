@@ -4,7 +4,7 @@ article.tweet {
   margin: 1em;
 }
 
-article.tweet.hover {
+article.tweet:hover {
   border: 1px solid hsla(0, 0%, 50%, 1);
 }
 
