@@ -81,7 +81,7 @@ $(document).ready(function(){
   loadTweets();
   $('form').on('submit', function (event){
     event.preventDefault();
-    $(this).children('.invalid').remove();
+    $(this).children('.warning').remove();
     var $text = $(this).children('textarea')[0];
     var flashWarning;
     if ($text.value === "" || $text.value === null){
@@ -92,7 +92,7 @@ $(document).ready(function(){
       }
     }
     if (flashWarning){
-      $(this).append(`<p class="invalid"> ${flashWarning} </p>`);
+      $(this).append(`<p class="warning"> ${flashWarning} </p>`);
     } else {
       $.ajax({
         url: "/tweets",
