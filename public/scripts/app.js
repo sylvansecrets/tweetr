@@ -52,6 +52,16 @@ var data = [
   }
 ];
 
+function loadTweets(){
+  $.ajax({
+    url: "/tweets",
+    method: 'GET',
+    success: function(tweets){
+      renderTweets(tweets)}
+  })
+
+}
+
 function renderTweets(tweets){
   for (let user in tweets){
     tweetDOM = createTweetElement(tweets[user]);
@@ -115,9 +125,7 @@ function escape(str) {
   return div.innerHTML;
 }
 
-
-
-
 $(document).ready(function(){
   renderTweets(data);
+  loadTweets();
 })
