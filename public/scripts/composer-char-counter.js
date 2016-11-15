@@ -6,6 +6,8 @@ $(document).ready(function(){
       $(this).parent('form').children('.counter').html(remainChar);
       if (remainChar < 0){
         $(this).parent('form').children('.counter').addClass('invalid');
+      } else {
+        $(this).parent('form').children('.counter').removeClass('invalid');
       }
   })
 })
