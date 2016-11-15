@@ -21,3 +21,21 @@ nav {
   line-height: 80px;
   padding-left: 10px;
 }
+
+#nav-bar .compose {
+  background-color: hsla(0, 100%, 100%, 1);
+  border-radius: 3px;
+  color: hsla(120, 100%, 35%, 1);
+  font-size: 1.2em;
+  font-weight: bold;
+  padding: 0.5em;
+  position: absolute;
+  right: 1em;
+  top: 50%;
+  transform: translateY(-50%);
+}
+
+#nav-bar .compose:hover{
+  box-shadow: 0 0 3px 2px hsla(0, 100%, 0%, 0.2) inset;
+  opacity: 0.99;
+}
