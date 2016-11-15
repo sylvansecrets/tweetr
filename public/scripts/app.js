@@ -31,7 +31,7 @@ var data = [
       },
       "handle": "@rd" },
     "content": {
-      "text": "Je pense , donc je suis"
+      "text": "Je pense , donc je suis <script>alert('lol')</script>"
     },
     "created_at": 1461113959088
   },
@@ -62,14 +62,15 @@ function renderTweets(tweets){
 
 function createTweetElement(tweet){
   let $tweet = $('<article>').addClass('tweet');
-  let image = `<img class='avatar' src=${tweet['user']['avatars']['regular']}>`;
-  let userName = `<h2>${tweet['user']['name']}</h2>`;
-  let userAvatar = `<h4>${tweet['user']['handle']}</h4>`
+  let image = `<img class='avatar' src=${escape(tweet['user']['avatars']['regular'])}>`;
+  let userName = `<h2>${escape(tweet['user']['name'])}</h2>`;
+  let userAvatar = `<h4>${escape(tweet['user']['handle'])}</h4>`
+  let head = `<header>${image+userName+userAvatar}</header>`
   let tweetText = tweet['content']['text'];
-  let para = `<p class="tweet-text">${tweetText}</p>`
+  let para = `<p class="tweet-text">${escape(tweetText)}</p>`
   let timeStamp = printTime(tweet['created_at']);
-  let foot = `<footer><p class='tweet-time'>${timeStamp}</p></footer>`
-  $($tweet).append(`<header>${image+userName+userAvatar}</header>`)
+  let foot = `<footer><p class='tweet-time'>${escape(timeStamp)}</p></footer>`
+  $($tweet).append(head);
   $($tweet).append(para);
   $($tweet).append(foot);
   return $tweet[0].outerHTML;
@@ -106,6 +107,12 @@ function roundTime(time){
   }
   let second = time/(60*60);
   return `${Math.floor(second)} seconds ago`;
+}
+
+function escape(str) {
+  let div = document.createElement('div');
+  div.appendChild(document.createTextNode(str));
+  return div.innerHTML;
 }
 
 
