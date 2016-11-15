@@ -25,10 +25,13 @@ section.new-tweet h2{
   border-bottom: 1px solid ;
 }
 
-section.new-tweet .invalid{
+section.new-tweet .warning{
   color: hsla(0, 100%, 50%, 1);
   font-size: 0.7em;
   margin: 0;
   padding: 0.5em;
 }
 
+section.new-tweet .invalid{
+  color: hsla(0, 100%, 50%, 1);
+}
