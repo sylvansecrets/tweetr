@@ -41,8 +41,38 @@ article.tweet p.tweet-text{
   padding: 1em;
 }
 
-article.tweet p.tweet-time{
-  margin: 0;
-  padding: 0.5em 1em;
+article.tweet .shoe{
+  display: flex;
+  justify-content: space-between;
+  padding:0.75em;
 }
 
+article.tweet .tweet-time{
+  float: left;
+}
+
+article.tweet .icons{
+  display: inline-block;
+  float: right;
+}
+
+article.tweet .icons i{
+  opacity: 0.3;
+}
+
+article.tweet .icons i:hover{
+  opacity: 0.8;
+  text-shadow: 1px 1px 0.5px grey;
+}
+
+article.tweet .icons .fa-flag:hover{
+  color: green;
+}
+
+article.tweet .icons .fa-retweet:hover{
+  color: blue;
+}
+
+article.tweet .icons .fa-heart:hover{
+  color: red;
+}
