@@ -42,22 +42,41 @@ console.log(`Connecting to MongoDB running at: ${MONGODB_URI}`);
 //   return output;
 // }
 
-function readTweets(url) {
-  var output = await pullTweets(url);
-  return output;
+
+
+function readTweets(url){
+  return new Promise(function(resolve, reject){
+    MongoClient.connect(url, (err, db) => {
+      assert.equal(null, err);
+      let collection = db.collection('tweets');
+      collection.find().toArray((err, results) => {
+        if (err){
+          reject(err);
+        } else {
+        assert.equal(null, err);
+        db.close();
+        // console.log(results);
+        resolve(results);
+      }
+      });
+    })
+  });
 }
 
-function pullTweets(url){
-  MongoClient.connect(url, (err, db) => {
-    assert.equal(null, err);
-    let collection = db.collection('tweets');
-    collection.find().toArray((err, results) => {
-      assert.equal(null, err);
-      db.close();
-      return results;
-      // console.log('results',results)
-      // output = results
-}
+
+
+
+
+
+
 
 module.exports = {readTweets: readTweets};
-console.log(readTweets(MONGODB_URI));
+function diagnoseTweets(url){
+  readTweets(url).then(function(results){
+    // console.log("success", results);
+  }, function(failure){
+    // console.log(failure);
+  })
+}
+
+// diagnoseTweets(MONGODB_URI);

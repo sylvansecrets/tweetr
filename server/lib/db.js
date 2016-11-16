@@ -16,13 +16,37 @@ const dbMethods = {
     return true;
   },
 
-  getTweets: () => {
-    allTweets = readTweets(MONGODB_URI);
-    console.log(allTweets);
-    return readTweets(MONGDB_URL).sort(function(a, b) { return b.created_at - a.created_at });
-  }
+  getTweets: getTweets,
+
+  // getTweets: () => {
+  //   allTweets = readTweets(MONGODB_URI);
+  //   console.log(allTweets);
+  //   return readTweets(MONGDB_URL).sort(function(a, b) { return b.created_at - a.created_at });
+
+
 
 }
+
+function getTweets(url=MONGODB_URI){
+  return new Promise(function(resolve, reject){
+    readTweets(url).then(function(results){
+      let sortedTweets = results.sort(function(a, b) { return b.created_at - a.created_at });
+      if (sortedTweets){
+        resolve(sortedTweets);
+      } else {
+        reject("sortedTweets not created "+sortedTweets);
+      }
+    }, function(failure){
+      console.log("readTweets failed", failure);
+    }
+    )
+  })
+}
+
+
+
+
+
 
 module.exports = {
 
@@ -33,3 +57,13 @@ module.exports = {
   }
 
 }
+
+// function diagnoseTweets(){
+//   getTweets().then(function(results){
+//     console.log("success", results);
+//   }, function(failure){
+//     console.log("diagnostics failed", failure);
+//   })
+// }
+
+// console.log(diagnoseTweets());
