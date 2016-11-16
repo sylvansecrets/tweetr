@@ -6,13 +6,23 @@ const tweets  = express.Router();
 
 module.exports = function(db) {
 
+  // tweets.get("/", function(req, res) {
+  //   let tweets = db.getTweets();
+  //   console.log(tweets);
+  //   // simulate delay
+  //   setTimeout(() => {
+  //     return res.json(tweets);
+  //   }, 300);
+  // });
   tweets.get("/", function(req, res) {
-    let tweets = db.getTweets();
-    // simulate delay
-    setTimeout(() => {
-      return res.json(tweets);
-    }, 300);
-  });
+    db.getTweets()
+    .then(function(tweets){
+      res.json(tweets);
+    }, (function (failure){
+      res.status(500);
+      throw failure;
+    }))
+  })
 
   tweets.post("/", function(req, res) {
     if (!req.body.text) {
