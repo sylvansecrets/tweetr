@@ -3,6 +3,7 @@ nav {
   color: hsla(185, 100%, 95%, 1);
   height: 80px;
   left: 0;
+  opacity: 1;
   position: fixed;
   padding-left: 2em;
   padding-right: 2em;

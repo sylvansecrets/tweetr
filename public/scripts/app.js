@@ -14,7 +14,7 @@ var loadTweets = function(){
     renderTweets(tweets);
   }, function(failure){
     console.log(failure);
-    throw faliure;
+    throw failure;
   })
 }
 
@@ -86,7 +86,6 @@ function escape(str) {
 }
 
 $(document).ready(function(){
-  // loadTweets();
   loadTweets();
   $('form').on('submit', function (event){
     event.preventDefault();
