@@ -1,5 +1,6 @@
 $(document).ready(function(){
   $('.new-tweet').hide();
+  $('#nav-bar').children('.compose').removeClass('held');
   $('#nav-bar').children('.compose').on('click', function(){
     if($(this).hasClass('held')){
       $(this).removeClass('held');
