@@ -37,7 +37,16 @@ nav {
   transform: translateY(-50%);
 }
 
+#nav-bar .compose i{
+  color: black;
+  opacity: 0.5;
+}
+
 #nav-bar .compose:hover{
   box-shadow: 0 0 3px 2px hsla(0, 100%, 0%, 0.2) inset;
   opacity: 0.99;
+}
+
+#nav-bar .compose.held{
+  box-shadow: 0 0 1em 7px hsla(0, 100%, 0%, 0.2) inset;
 }
