@@ -26,6 +26,7 @@ nav {
   background-color: hsla(0, 100%, 100%, 1);
   border-radius: 3px;
   color: hsla(120, 100%, 35%, 1);
+  cursor: pointer;
   font-size: 1.2em;
   font-weight: bold;
   padding: 0.5em;
