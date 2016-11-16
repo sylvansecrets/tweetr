@@ -37,6 +37,10 @@
     <!-- Handlebars Template -->
     <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/handlebars.js/4.0.6/handlebars.min.js"></script>
 
+    <!-- Handlebars Template -->
+    <link rel="stylesheet" href="https://opensource.keycdn.com/fontawesome/4.7.0/font-awesome.min.css" integrity="sha384-dNpIIXE8U05kAbPhy3G1cz+yZmTzA6CY8Vg/u2L9xRnHjJiAK76m2BIEaSEV+/aU" crossorigin="anonymous">
+
+
 
 
 
@@ -49,6 +53,7 @@
       <img class="logo" src="/images/bird.png">
       <span class="header">Tweeter</span>
       <div class="compose">
+        <i class="fa fa-pencil" aria-hidden="false"></i>
         Compose
       </div>
     </nav>
@@ -58,7 +63,7 @@
       <section class="new-tweet">
         <h2>Compose Tweet</h2>
 
-          <form method = "POST" action="/tweets/">
+          <form method = "POST" action="/tweets/" for="text">
             <textarea name="text" placeholder="What are you humming about?"></textarea>
             <input type="submit" value="Tweet">
             <span class="counter">140</span>
@@ -102,7 +107,14 @@
       </header>
         <p class="tweet-text"> {{content}} </p>
       <footer>
-        <p class="tweet-time"> {{time_since}} </p>
+        <div class="shoe">
+          <div class="tweet-time"> {{time_since}} </div>
+          <div class="icons">
+             <i class="fa fa-flag"></i>
+             <i class="fa fa-retweet"></i>
+             <i class="fa fa-heart"></i>
+          </div>
+        </div>
       </footer>
     </article>
   </script>
