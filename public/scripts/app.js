@@ -20,17 +20,12 @@ var loadTweets = function(){
 
 function renderTweets(tweets){
   for (var primary_key in tweets){
-    console.log("rendering")
-    console.log(tweets[primary_key]['user']);
     tweetDOM = createTweetElement(tweets[primary_key]);
     $('.tweet-contents').append(tweetDOM);
   }
 }
 
 function createTweetElement(tweet){
-  console.log(tweet);
-  console.log(Object.keys(tweet))
-  // console.log(tweet['user']['avatars']['regular'])
   var $tweet = $('<article>').addClass('tweet');
   var image = `<img class='avatar' src=${escape(tweet['user']['avatars']['regular'])}>`;
   var userName = `<h2>${escape(tweet['user']['name'])}</h2>`;
@@ -58,7 +53,6 @@ function roundTime(time){
     return `${Math.floor(year)} years ago`;
   }
   var month = time/(30*24*60*60);
-  console.log(month)
   if(month > 1){
     return `${Math.floor(month)} months ago`;
   }
@@ -67,7 +61,6 @@ function roundTime(time){
     return `${Math.floor(day)} days ago`;
   }
   var hour = time/(60*60);
-  console.log("hour",hour)
   if(hour > 1){
     return `${Math.floor(hour)} hours ago`;
   }
