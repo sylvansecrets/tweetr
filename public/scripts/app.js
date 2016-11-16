@@ -20,25 +20,22 @@ var loadTweets = function(){
 
 function renderTweets(tweets){
   for (var primary_key in tweets){
-    tweetDOM = createTweetElement(tweets[primary_key]);
+    var source = $('#tweet-template').html();
+    var template = Handlebars.compile(source);
+    tweetDOM = createTweetElement(tweets[primary_key], template);
     $('.tweet-contents').append(tweetDOM);
   }
 }
 
-function createTweetElement(tweet){
-  var $tweet = $('<article>').addClass('tweet');
-  var image = `<img class='avatar' src=${escape(tweet['user']['avatars']['regular'])}>`;
-  var userName = `<h2>${escape(tweet['user']['name'])}</h2>`;
-  var userAvatar = `<h4>${escape(tweet['user']['handle'])}</h4>`
-  var head = `<header>${image+userName+userAvatar}</header>`
-  var tweetText = tweet['content']['text'];
-  var para = `<p class="tweet-text">${escape(tweetText)}</p>`
-  var timeStamp = printTime(tweet['created_at']);
-  var foot = `<footer><p class='tweet-time'>${escape(timeStamp)}</p></footer>`
-  $($tweet).append(head);
-  $($tweet).append(para);
-  $($tweet).append(foot);
-  return $tweet[0].outerHTML;
+function createTweetElement(tweet, template){
+  new_article = template({
+    image_location: tweet['user']['avatars']['regular'],
+    user_name: tweet['user']['name'],
+    user_handle: tweet['user']['handle'],
+    content: tweet['content']['text'],
+    time_since: printTime(tweet['created_at'])
+  });
+  return new_article;
 }
 
 function printTime(timeStamp){
