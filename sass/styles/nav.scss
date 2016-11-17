@@ -1,0 +1,59 @@
+$bg-dark-green: hsla(171, 100%, 31%, 1);
+$text-light-green: hsla(185, 100%, 95%, 1);
+$nav-height: 80px;
+$light-inset-shadow: 0 0 3px 2px hsla(0, 100%, 0%, 0.2) inset;
+$dark-inset-shadow: 0 0 1em 7px hsla(0, 100%, 0%, 0.2) inset;
+
+#nav-bar {
+  background-color: $bg-dark-green;
+  color: $text-light-green;
+  height: $nav-height;
+  left: 0;
+  opacity: 1;
+  position: fixed;
+  padding-left: 2em;
+  padding-right: 2em;
+  right : 0;
+
+  .logo{
+    float: left;
+    height: $nav-height;
+    width: 80px;
+  }
+
+  .header {
+    float: left;
+    font-size: 2em;
+    line-height: $nav-height;
+    padding-left: 10px;
+  }
+
+  .compose {
+    background-color: hsla(0, 100%, 100%, 1);
+    border-radius: 3px;
+    color: hsla(120, 100%, 35%, 1);
+    cursor: pointer;
+    font-size: 1.2em;
+    font-weight: bold;
+    padding: 0.5em;
+    position: absolute;
+    right: 1em;
+    top: 50%;
+    transform: translateY(-50%);
+
+
+    i{
+      color: black;
+      opacity: 0.5;
+    }
+
+    :hover{
+      box-shadow: $light-inset-shadow;
+      opacity: 0.99;
+    }
+  }
+
+  .compose.held{
+    box-shadow: $dark-inset-shadow;
+  }
+}

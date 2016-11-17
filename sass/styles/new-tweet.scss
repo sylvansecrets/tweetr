@@ -1,0 +1,38 @@
+$text-red: hsla(0, 100%, 50%, 1);
+
+section.new-tweet{
+  background-color: hsla(297, 0%, 86%, 1);
+  border-radius: 5px;
+  margin: auto;
+  margin-left: 2em;
+  margin-right: 2em;
+  padding-bottom: 0.5em;
+  padding-left: 1em;
+  padding-right: 1em;
+
+  textarea{
+    border-radius: 3px;
+    width: 100%;
+  }
+
+  /*fix this with a class selector*/
+  span{
+    float: right;
+  }
+
+  h2{
+    padding-top: 0.5em;
+    border-bottom: 1px solid ;
+  }
+
+  .warning{
+    color: hsla(0, 100%, 50%, 1);
+    font-size: 0.7em;
+    margin: 0;
+    padding: 0.5em;
+  }
+
+  .invalid{
+    color: $text-red;
+  }
+}
