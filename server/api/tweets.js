@@ -42,6 +42,14 @@ module.exports = function(db) {
     return res.send();
   });
 
+  tweets.put("/", function(req, res){
+    let status = req.body.status;
+    let icon = req.body.icon;
+    // Implement Me
+    res.send();
+
+  })
+
   return tweets;
 
 }

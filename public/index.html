@@ -28,6 +28,9 @@
     <!-- App JS -->
     <script type="text/javascript" src="/scripts/app.js"></script>
 
+    <!-- Likes JS -->
+    <script type="text/javascript" src="/scripts/likes.js"></script>
+
     <!-- Character counter -->
     <script type="text/javascript" src="/scripts/composer-char-counter.js"></script>
 
@@ -110,9 +113,18 @@
         <div class="shoe">
           <div class="tweet-time"> {{time_since}} </div>
           <div class="icons">
+            <div class="icon-wrap" data-tweeter-icon="flag" data-tweeter-status="false">
              <i class="fa fa-flag"></i>
-             <i class="fa fa-retweet"></i>
-             <i class="fa fa-heart"></i>
+             <p class="description-counter">0</p>
+            </div>
+            <div class="icon-wrap" data-tweeter-icon="retweet" data-tweeter-status="false">
+              <i class="fa fa-retweet"></i>
+              <p class="description-counter">0</p>
+            </div>
+            <div class="icon-wrap" data-tweeter-icon="heart" data-tweeter-status="false">
+              <i class="fa fa-heart"></i>
+              <p class="description-counter">0</p>
+            </div>
           </div>
         </div>
       </footer>

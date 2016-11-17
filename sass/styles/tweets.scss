@@ -1,14 +1,11 @@
 $height-limit: 80px;
+$icon-size: 20px;
 
 article.tweet{
   border: 1px solid hsla(0, 0%, 87%, 1);
   border-radius: 5px;
   margin: 1em;
 
-
-  :hover {
-    border: 1px solid hsla(0, 0%, 50%, 1);
-  }
 
   img.avatar {
     float: left;
@@ -56,31 +53,65 @@ article.tweet{
     .icons{
       display: inline-block;
       float: right;
+      transition: all 0.5s ease;
 
+      .icon-wrap{
+        float: left;
+        height: $icon-size;
+        margin: 2px;
+        position: relative;
+        width: $icon-size*2;
 
-      i{
-        opacity: 0.3;
+        i{
+          float: left;
+          font-size: 20px;
+          height: $icon-size;
+          opacity: 0.1;
+          text-align: center;
+          width: $icon-size;
+          z-index: 1000;
 
-
-        hover{
-          opacity: 0.8;
-          text-shadow: 1px 1px 0.5px grey;
         }
 
-        .fa-flag:hover{
-          color: green;
-        }
-
-         .fa-retweet:hover{
-          color: blue;
-        }
-
-         .fa-heart:hover{
-          color: red;
+        .description-counter{
+          color: grey;
+          float: left;
+          font-size: 0.8em;
+          font-weight: bold;
+          height: $icon-size;
+          margin: auto;
+          opacity: 0.3;
+          text-align: center;
+          width: $icon-size;
+          z-index: 1500;
         }
       }
+
+      .icon-wrap:hover{
+        i{
+          opacity: 0.3;
+          text-shadow: 1px 1px 0.5px grey;
+        }
+        .description-counter{
+          opacity: 0.6;
+        }
+        .fa-heart{
+          color: red;
+        }
+        .fa-flag{
+          color: green;
+        }
+        .fa-retweet{
+          color: blue;
+        }
+      }
+
     }
   }
+}
+
+article.tweet:hover {
+    border: 1px solid hsla(0, 0%, 50%, 1);
 }
 
 

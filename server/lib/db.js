@@ -15,16 +15,7 @@ const dbMethods = {
     injectTweet(MONGODB_URI, data);
     return true;
   },
-
   getTweets: getTweets,
-
-  // getTweets: () => {
-  //   allTweets = readTweets(MONGODB_URI);
-  //   console.log(allTweets);
-  //   return readTweets(MONGDB_URL).sort(function(a, b) { return b.created_at - a.created_at });
-
-
-
 }
 
 function getTweets(url=MONGODB_URI){
